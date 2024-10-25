@@ -13,7 +13,7 @@ public class Participante {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    private String emai;
+    private String email;
 
     @ManyToMany(mappedBy = "participantes")
     private Set<Atividade> atividades = new HashSet<>();
@@ -25,7 +25,7 @@ public class Participante {
     public Participante(Integer id, String nome, String emai) {
         this.id = id;
         this.nome = nome;
-        this.emai = emai;
+        this.email = emai;
     }
 
     public Integer getId() {
@@ -45,11 +45,11 @@ public class Participante {
     }
 
     public String getEmai() {
-        return emai;
+        return email;
     }
 
     public void setEmai(String emai) {
-        this.emai = emai;
+        this.email = email;
     }
 
     public Set<Atividade> getAtividades() {

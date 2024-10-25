@@ -2,8 +2,6 @@ package com.devsuperior.desafio_modelo_orm.entities;
 
 import jakarta.persistence.*;
 
-import java.time.Instant;
-
 @Entity
 @Table(name = "tb_bloco")
 public class Bloco {
@@ -12,10 +10,10 @@ public class Bloco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-    private Instant inicio;
-    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
-    private Instant fim;
+
+    private String inicio;
+
+    private String fim;
 
     @ManyToOne
     @JoinColumn(name = "atividade_id")
@@ -24,7 +22,7 @@ public class Bloco {
     public Bloco(){
     }
 
-    public Bloco(Integer id, Instant inicio, Instant fim, Atividade atividade) {
+    public Bloco(Integer id, String inicio, String fim, Atividade atividade) {
         this.id = id;
         this.inicio = inicio;
         this.fim = fim;
@@ -39,19 +37,19 @@ public class Bloco {
         this.id = id;
     }
 
-    public Instant getInicio() {
+    public String getInicio() {
         return inicio;
     }
 
-    public void setInicio(Instant inicio) {
+    public void setInicio(String inicio) {
         this.inicio = inicio;
     }
 
-    public Instant getFim() {
+    public String getFim() {
         return fim;
     }
 
-    public void setFim(Instant fim) {
+    public void setFim(String fim) {
         this.fim = fim;
     }
 
